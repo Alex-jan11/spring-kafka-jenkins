@@ -12,7 +12,7 @@ pipeline {
       steps {
         dir('user-service') {
           echo '🔧 Build Maven pentru user-service...'
-          sh './mvnw clean package -DskipTests'
+          sh 'mvn clean package -DskipTests'
 
           echo '🐳 Build Docker image pentru user-service...'
           sh "docker build -t ${USER_IMAGE_NAME}:${IMAGE_TAG} ."
@@ -24,7 +24,7 @@ pipeline {
       steps {
         dir('order-service') {
           echo '🔧 Build Maven pentru order-service...'
-          sh './mvnw clean package -DskipTests'
+          sh 'mvn clean package -DskipTests'
 
           echo '🐳 Build Docker image pentru order-service...'
           sh "docker build -t ${ORDER_IMAGE_NAME}:${IMAGE_TAG} ."
